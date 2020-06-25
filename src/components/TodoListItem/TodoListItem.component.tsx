@@ -1,15 +1,16 @@
 import React from 'react';
-import { ITodo } from './TodoListItem.interface';
+import { ITodo, ToggleTodo } from './TodoListItem.interface';
 
 interface IProps {
   todo: ITodo;
+  toggleTodo: ToggleTodo;
 }
 
-export const TodoListItem: React.FC<IProps> = ({ todo }) => {
+export const TodoListItem: React.FC<IProps> = ({ todo, toggleTodo }) => {
   return (
     <li>
       <label style={{ textDecoration: todo.complete ? 'line-through' : undefined }}>
-        <input type="checkbox" checked={todo.complete} /> {todo.text}
+        <input type="checkbox" checked={todo.complete} onClick={() => toggleTodo(todo)} /> {todo.text}
       </label>
     </li>
   );
