@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { ITodo } from './components/TodoListItem/TodoListItem.interface';
-import { TodoListItem } from './components/TodoListItem/TodoListItem.component';
+import { TodoList } from './components/TodoList/TodoList.component';
 
 const initialTodos: ITodo[] = [
   {
@@ -30,12 +30,7 @@ function App() {
     setTodos(newTodos);
   }
 
-  return (
-    <>
-      <TodoListItem todo={todos[0]} toggleTodo={toggleTodo} />
-      <TodoListItem todo={todos[1]} toggleTodo={toggleTodo} />
-    </>
-  );
+  return <TodoList todos={todos} toggleTodo={toggleTodo} />;
 }
 
 export default App;
